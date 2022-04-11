@@ -1,5 +1,6 @@
 {
     "name": "fretelweb/php-validator",
+    "license": "MIT",
     "type": "library",
     "autoload": {
         "psr-4": {
