@@ -1,0 +1,16 @@
+{
+    "name": "fretelweb/php-validator",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Fretelweb\\PhpValidator\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ronny Fretel",
+            "email": "ronny@fretelweb.com"
+        }
+    ],
+    "require": {}
+}
