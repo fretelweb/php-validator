@@ -99,7 +99,10 @@ final class Validator
     */
    private function is_required(array $data, string $field): bool
    {
-      return isset($data[$field]); //&& trim($data[$field]) !== '';
+      if (!isset($data[$field])) return false;
+      if (is_string($data[$field])) return trim($data[$field]) !== '';
+      if (is_array($data[$field])) return count($data[$field]) > 0;
+      return true;
    }
 
    /**
