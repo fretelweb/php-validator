@@ -41,12 +41,12 @@ final class Validator
       $this->messages = $messages;
    }
 
-   public function validated():?array
+   public function validated(): ?array
    {
-      if ( ! $this->isValidated) {
+      if (!$this->isValidated) {
          $this->validate();
       }
-      return $this->dataValidated ;
+      return $this->dataValidated;
    }
 
    public function validate(): bool
@@ -72,7 +72,7 @@ final class Validator
 
             if (method_exists($this, $fn)) {
                $pass = $this->{$fn}($this->data, $field, ...$params);
-               if ( ! $pass) {
+               if (!$pass) {
                   $this->errors[$field] = sprintf($this->messages[$field][$rule_name] ?? $validation_errors[$rule_name], $field, ...$params);
                }
             }
@@ -99,7 +99,7 @@ final class Validator
     */
    private function is_required(array $data, string $field): bool
    {
-      return isset($data[$field]) && trim($data[$field]) !== '';
+      return isset($data[$field]); //&& trim($data[$field]) !== '';
    }
 
    /**
@@ -130,7 +130,7 @@ final class Validator
     */
    private function is_min(array $data, string $field, int $min): bool
    {
-      if ( ! isset($data[$field])) {
+      if (!isset($data[$field])) {
          return true;
       }
 
@@ -148,7 +148,7 @@ final class Validator
     */
    private function is_max(array $data, string $field, int $max): bool
    {
-      if ( ! isset($data[$field])) {
+      if (!isset($data[$field])) {
          return true;
       }
 
@@ -165,7 +165,7 @@ final class Validator
     */
    private function is_between(array $data, string $field, int $min, int $max): bool
    {
-      if ( ! isset($data[$field])) {
+      if (!isset($data[$field])) {
          return true;
       }
 
@@ -188,7 +188,7 @@ final class Validator
          return $data[$field] === $data[$other];
       }
 
-      if ( ! isset($data[$field]) && ! isset($data[$other])) {
+      if (!isset($data[$field]) && !isset($data[$other])) {
          return true;
       }
 
@@ -205,7 +205,7 @@ final class Validator
     */
    private function is_alphanumeric(array $data, string $field): bool
    {
-      if ( ! isset($data[$field])) {
+      if (!isset($data[$field])) {
          return true;
       }
 
@@ -222,7 +222,7 @@ final class Validator
     */
    private function is_secure(array $data, string $field): bool
    {
-      if ( ! isset($data[$field])) {
+      if (!isset($data[$field])) {
          return false;
       }
 
