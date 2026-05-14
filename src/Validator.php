@@ -119,7 +119,7 @@ final class Validator
          return true;
       }
 
-      return filter_var($data[$field], FILTER_VALIDATE_EMAIL);
+      return filter_var($data[$field], FILTER_VALIDATE_EMAIL) !== false;
    }
 
    /**
